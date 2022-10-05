@@ -66,7 +66,6 @@ class FirstViewController: UIViewController {
         return lineView
     }()
     
-    
     //카카오계정 로그인 버튼
     private lazy var loginBtn : UIButton = {
         let button = UIButton(frame: CGRect(x: 22, y: 420, width: 350, height: 40))
@@ -110,16 +109,23 @@ class FirstViewController: UIViewController {
         components.forEach {
             self.view.addSubview($0 as! UIView)
         }
-    }
+    }    
     
     private func presentToWelcomeVC() {
         let welcomeVC = WelcomeViewController()
         welcomeVC.modalPresentationStyle = .formSheet
         
         if let yourname = inputEmailNumberTextField.text{
-            welcomeVC.dataBind(name: yourname)
+            
+            // 이메일 또는 전화번호를 입력하지 않은 경우 -> toastMessage 띄움
+            if yourname == "" || inputPasswordTextField.text == "" {
+                self.showToast(message: "입력되지 않았습니다", font: UIFont.systemFont(ofSize: 12, weight: .light))
+            } else {
+                // 올바르게 입력된 경우
+                welcomeVC.dataBind(name: yourname)
+                self.present(welcomeVC, animated: true, completion: nil)
+            }
         }
-        self.present(welcomeVC, animated: true, completion: nil)
     }
     
     private func pushToSignUpVC() {

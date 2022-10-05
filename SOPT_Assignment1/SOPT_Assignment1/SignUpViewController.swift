@@ -94,16 +94,24 @@ class SignUpViewController: UIViewController {
             self.view.addSubview($0 as! UIView)
         }
     }
+
     
     //welcomeVC로 present
     private func presentToWelcomeVC() {
         let welcomeVC = WelcomeViewController()
         welcomeVC.modalPresentationStyle = .formSheet
         
-        if let yourName = inputEmailNumberTextField.text{
-            welcomeVC.dataBind(name: yourName)
+        if let yourname = inputEmailNumberTextField.text {
+            
+            // 이메일 또는 전화번호를 입력하지 않은 경우 -> toastMessage 띄움
+            if yourname == "" || inputPasswordTextField.text == "" || checkPasswordTextField.text == "" {
+                showToast(message: "입력되지 않았습니다", font: UIFont.systemFont(ofSize: 12, weight: .light))
+            } else {
+                // 올바르게 입력된 경우
+                welcomeVC.dataBind(name: yourname)
+                self.present(welcomeVC, animated: true, completion: nil)
+            }
         }
-        self.present(welcomeVC, animated: true, completion: nil)
     }
     
     //로그인

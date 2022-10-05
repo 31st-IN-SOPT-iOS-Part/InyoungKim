@@ -16,6 +16,7 @@
 		1460A0B428E8A33000559ACE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1460A0B328E8A33000559ACE /* WelcomeViewController.swift */; };
 		1460A0B628E8A34100559ACE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1460A0B528E8A34100559ACE /* SignUpViewController.swift */; };
 		1482171228EC8A1F00F095B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1460A0A128E8A21800559ACE /* ViewController.swift */; };
+		14B7243D28EE002F00B6DB2B /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7243C28EE002F00B6DB2B /* UIView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1460A0B128E8A31E00559ACE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		1460A0B328E8A33000559ACE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		1460A0B528E8A34100559ACE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		14B7243C28EE002F00B6DB2B /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				1460A0B328E8A33000559ACE /* WelcomeViewController.swift */,
 				1460A0B528E8A34100559ACE /* SignUpViewController.swift */,
 				1460A0A128E8A21800559ACE /* ViewController.swift */,
+				14B7243C28EE002F00B6DB2B /* UIView + Extension.swift */,
 				1460A0A328E8A21800559ACE /* Main.storyboard */,
 				1460A0A628E8A21900559ACE /* Assets.xcassets */,
 				1460A0A828E8A21900559ACE /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1482171228EC8A1F00F095B6 /* ViewController.swift in Sources */,
+				14B7243D28EE002F00B6DB2B /* UIView + Extension.swift in Sources */,
 				1460A09E28E8A21800559ACE /* AppDelegate.swift in Sources */,
 				1460A0A028E8A21800559ACE /* SceneDelegate.swift in Sources */,
 				1460A0B428E8A33000559ACE /* WelcomeViewController.swift in Sources */,
