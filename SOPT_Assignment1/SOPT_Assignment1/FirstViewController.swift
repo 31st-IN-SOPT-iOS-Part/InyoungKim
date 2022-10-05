@@ -10,7 +10,7 @@ import UIKit
 class FirstViewController: UIViewController {
     
     //카카오톡을 시작합니다
-    private let mainTitle: UILabel = {
+    private let mainTitleLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 40, y: 110, width: 300, height: 40))
         label.text = "카카오톡을 시작합니다"
         label.font = .boldSystemFont(ofSize: 25)
@@ -30,7 +30,7 @@ class FirstViewController: UIViewController {
     }()
     
     //이메일 또는 전화번호를 입력
-    private let inputEmailNumber: UITextField = {
+    private let inputEmailNumberTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 22, y: 280, width: 350, height: 40))
         textField.backgroundColor = .white
         textField.font = .systemFont(ofSize: 15, weight: .medium)
@@ -40,7 +40,7 @@ class FirstViewController: UIViewController {
     }()
     
     //비밀번호 입력
-    private let inputPassword: UITextField = {
+    private let inputPasswordTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 22, y: 330, width: 350, height: 40))
         textField.backgroundColor = .white
         textField.font = .systemFont(ofSize: 15, weight: .medium)
@@ -53,14 +53,14 @@ class FirstViewController: UIViewController {
     
     //Underline UIView
     //(1) inputEmailNumber textField 밑에 들어갈 밑줄
-    private lazy var underLineView1: UIView = {
+    private lazy var emailNumberUnderLineView: UIView = {
         let lineView: UIView = UIView(frame: CGRect(x: 22, y: 320, width: 350, height: 1))
         lineView.backgroundColor = .systemGray6
         return lineView
     }()
     
     //(2) inputPassword textField 밑에 들어갈 밑줄
-    private lazy var underLineView2: UIView = {
+    private lazy var pwUnderLineView: UIView = {
         let lineView: UIView = UIView(frame: CGRect(x: 22, y: 370, width: 350, height: 1))
         lineView.backgroundColor = .systemGray6
         return lineView
@@ -106,7 +106,7 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let components: [Any] = [mainTitle, detailLabel, inputEmailNumber, inputPassword ,loginBtn, signUpBtn, findAccoutBtn, underLineView1, underLineView2]
+        let components: [Any] = [mainTitleLabel, detailLabel, inputEmailNumberTextField, inputPasswordTextField, loginBtn, signUpBtn, findAccoutBtn, emailNumberUnderLineView, pwUnderLineView]
         components.forEach {
             self.view.addSubview($0 as! UIView)
         }
@@ -116,7 +116,7 @@ class FirstViewController: UIViewController {
         let welcomeVC = WelcomeViewController()
         welcomeVC.modalPresentationStyle = .formSheet
         
-        if let yourname = inputEmailNumber.text{
+        if let yourname = inputEmailNumberTextField.text{
             welcomeVC.dataBind(name: yourname)
         }
         self.present(welcomeVC, animated: true, completion: nil)

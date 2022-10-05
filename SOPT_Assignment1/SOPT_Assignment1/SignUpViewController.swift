@@ -10,7 +10,7 @@ import UIKit
 class SignUpViewController: UIViewController {
 
     //카카오톡을 실행합니다
-    private let mainTitle: UILabel = {
+    private let mainTitleLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 40, y: 110, width: 300, height: 40))
         label.text = "카카오톡을 시작합니다"
         label.font = .boldSystemFont(ofSize: 25)
@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
     }()
     
     //이메일 또는 전화번호를 입력
-    private let inputEmailNumber: UITextField = {
+    private let inputEmailNumberTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 22, y: 280, width: 350, height: 40))
         textField.backgroundColor = .white
         textField.font = .systemFont(ofSize: 15, weight: .medium)
@@ -30,7 +30,7 @@ class SignUpViewController: UIViewController {
     }()
     
     //비밀번호 입력
-    private let inputPassword: UITextField = {
+    private let inputPasswordTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 22, y: 330, width: 350, height: 40))
         textField.backgroundColor = .white
         textField.font = .systemFont(ofSize: 15, weight: .medium)
@@ -41,7 +41,7 @@ class SignUpViewController: UIViewController {
     }()
     
     //비밀번호 확인
-    private let checkPassword: UITextField = {
+    private let checkPasswordTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 22, y: 380, width: 350, height: 40))
         textField.backgroundColor = .white
         textField.font = .systemFont(ofSize: 15, weight: .medium)
@@ -54,19 +54,19 @@ class SignUpViewController: UIViewController {
     
     //underline UIView
     //(1) inputEmailNumber textField 밑줄
-    private lazy var underLineView1: UIView = {
+    private lazy var emailNumberUnderLineView: UIView = {
         let lineView: UIView = UIView(frame: CGRect(x: 22, y: 320, width: 350, height: 1))
         lineView.backgroundColor = .systemGray6
         return lineView
     }()
     //(2) inputPassword textField 밑줄
-    private lazy var underLineView2: UIView = {
+    private lazy var pwUnderLineView: UIView = {
         let lineView: UIView = UIView(frame: CGRect(x: 22, y: 370, width: 350, height: 1))
         lineView.backgroundColor = .systemGray6
         return lineView
     }()
     //(3) checkPassword textField 밑줄
-    private lazy var underLineView3: UIView = {
+    private lazy var checkPWUnderLineView: UIView = {
         let lineView: UIView = UIView(frame: CGRect(x: 22, y: 420, width: 350, height: 1))
         lineView.backgroundColor = .systemGray6
         return lineView
@@ -89,7 +89,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let componenets : [Any] = [mainTitle, inputEmailNumber, inputPassword, checkPassword, signUpBtn, underLineView1, underLineView2, underLineView3]
+        let componenets : [Any] = [mainTitleLabel, inputEmailNumberTextField, inputPasswordTextField, checkPasswordTextField, signUpBtn, emailNumberUnderLineView, pwUnderLineView, checkPWUnderLineView]
         componenets.forEach {
             self.view.addSubview($0 as! UIView)
         }
@@ -100,7 +100,7 @@ class SignUpViewController: UIViewController {
         let welcomeVC = WelcomeViewController()
         welcomeVC.modalPresentationStyle = .formSheet
         
-        if let yourName = inputEmailNumber.text{
+        if let yourName = inputEmailNumberTextField.text{
             welcomeVC.dataBind(name: yourName)
         }
         self.present(welcomeVC, animated: true, completion: nil)
