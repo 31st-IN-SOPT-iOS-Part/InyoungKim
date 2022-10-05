@@ -48,7 +48,10 @@ class WelcomeViewController: UIViewController {
     
     @objc
     private func touchupBackButton() {
-        self.dismiss(animated: true, completion: nil)
+        let presentingVC = self.presentingViewController
+        guard let vc = presentingVC as? UINavigationController else { return }
+        
+        self.dismiss(animated: true)
+        vc.popViewController(animated: true)
     }
-
 }
