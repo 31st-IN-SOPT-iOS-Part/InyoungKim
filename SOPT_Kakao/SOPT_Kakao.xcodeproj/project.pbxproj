@@ -51,6 +51,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		149A2C7328F9615500986571 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				14ADEC9F28F729CE00169F84 /* ProfileDetailViewController.swift */,
+				14ADEC9D28F6B79500169F84 /* MainViewController.swift */,
+				14ADEBFC28F3124C00169F84 /* SignUpViewController.swift */,
+				14ADEBFA28F3120A00169F84 /* SignInViewController.swift */,
+				14ADEBFE28F3125D00169F84 /* WelcomeViewController.swift */,
+				14ADEBEA28F311EA00169F84 /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		149A2C7428F9617700986571 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				14ADEC0028F3156000169F84 /* UIView + Extension.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		149A2C7528F961AA00986571 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				14ADEBE828F311EA00169F84 /* SceneDelegate.swift */,
+				14ADEBE628F311EA00169F84 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		14ADEBDA28F311EA00169F84 = {
 			isa = PBXGroup;
 			children = (
@@ -70,19 +100,13 @@
 		14ADEBE528F311EA00169F84 /* SOPT_Kakao */ = {
 			isa = PBXGroup;
 			children = (
-				14ADEBE628F311EA00169F84 /* AppDelegate.swift */,
-				14ADEBE828F311EA00169F84 /* SceneDelegate.swift */,
-				14ADEBEA28F311EA00169F84 /* ViewController.swift */,
+				149A2C7528F961AA00986571 /* Application */,
+				149A2C7428F9617700986571 /* Global */,
+				149A2C7328F9615500986571 /* Presentation */,
 				14ADEBEC28F311EA00169F84 /* Main.storyboard */,
 				14ADEBEF28F311EB00169F84 /* Assets.xcassets */,
 				14ADEBF128F311EB00169F84 /* LaunchScreen.storyboard */,
 				14ADEBF428F311EB00169F84 /* Info.plist */,
-				14ADEBFA28F3120A00169F84 /* SignInViewController.swift */,
-				14ADEBFC28F3124C00169F84 /* SignUpViewController.swift */,
-				14ADEBFE28F3125D00169F84 /* WelcomeViewController.swift */,
-				14ADEC0028F3156000169F84 /* UIView + Extension.swift */,
-				14ADEC9D28F6B79500169F84 /* MainViewController.swift */,
-				14ADEC9F28F729CE00169F84 /* ProfileDetailViewController.swift */,
 			);
 			path = SOPT_Kakao;
 			sourceTree = "<group>";
