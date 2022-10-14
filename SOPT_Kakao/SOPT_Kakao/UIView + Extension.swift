@@ -27,4 +27,12 @@ extension UIViewController {
             toastLabel.removeFromSuperview()
         })
     }
+    
+    // rootViewController를 변경하는 함수
+    func changeRootViewController(_ rootViewController: UIViewController) {
+        let mainViewController : UIViewController = MainViewController()
+        if let window = view.window?.windowScene?.keyWindow {
+            window.rootViewController = mainViewController
+        }
+    }
 }

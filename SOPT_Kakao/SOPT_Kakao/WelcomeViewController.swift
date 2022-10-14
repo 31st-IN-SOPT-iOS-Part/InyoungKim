@@ -38,7 +38,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        layout()
+        setLayout()
     }
     
     func dataBind(name: String) {
@@ -47,18 +47,9 @@ class WelcomeViewController: UIViewController {
     }
     
     func pushToMainVC() {
-        
         let rootVC = MainViewController()
-        let presentingVC = self.presentingViewController
-        guard let vc = presentingVC as? UINavigationController else { return }
-        
-        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
-        sceneDelegate.window?.rootViewController = rootVC
-        
         rootVC.dataBind(name: self.name)
-        
-        vc.navigationController?.popToRootViewController(animated: true)
-        self.dismiss(animated: true)
+        changeRootViewController(rootVC)
     }
     
     @objc
@@ -69,7 +60,7 @@ class WelcomeViewController: UIViewController {
 }
 
 extension WelcomeViewController {
-    func layout() {
+    func setLayout() {
         [nameLabel, backButton].forEach{
             view.addSubview($0)
         }

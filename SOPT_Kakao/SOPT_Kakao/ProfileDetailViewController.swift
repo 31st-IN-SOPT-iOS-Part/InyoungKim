@@ -9,9 +9,6 @@ import UIKit
 import SnapKit
 
 class ProfileDetailViewController: UIViewController {
-
-    //button Configuration
-    var config = UIButton.Configuration.plain()
     
     //이름 (ex.김솝트)
     private let nameLabel : UILabel = {
@@ -84,7 +81,7 @@ class ProfileDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
-        layout()
+        setLayout()
     }
     
     func dataBind(name: String) {
@@ -99,7 +96,7 @@ class ProfileDetailViewController: UIViewController {
 
 extension ProfileDetailViewController {
     
-    func layout() {
+    func setLayout() {
         
         [profileTalkButton, profileImageButton, profileStoryButton, profileEditButton, nameLabel, underlineView, backButton].forEach {
             self.view.addSubview($0)

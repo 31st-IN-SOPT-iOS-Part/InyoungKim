@@ -105,7 +105,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        layout()
+        setLayout()
     }
     
     private func presentToWelcomeVC() {
@@ -145,7 +145,7 @@ class SignInViewController: UIViewController {
 }
 
 extension SignInViewController {
-    func layout() {
+    func setLayout() {
         [mainTitleLabel, detailLabel, inputEmailNumberTextField, inputPasswordTextField, loginBtn, signUpBtn, findAccoutBtn, emailNumberUnderLineView, pwUnderLineView].forEach{
             self.view.addSubview($0)
         }

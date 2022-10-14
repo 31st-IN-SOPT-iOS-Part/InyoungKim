@@ -48,11 +48,10 @@ class MainViewController: UIViewController {
         return profileImgBtn
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        layout()
+        setLayout()
     }
 
     func dataBind(name: String){
@@ -84,7 +83,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController {
     
-    func layout() {
+    func setLayout() {
         
         // 친구, 설정버튼을 friendView에 추가
         friendView.addSubview(friendLabel)
@@ -110,7 +109,6 @@ extension MainViewController {
             make.leading.equalTo(self.friendLabel.snp.trailing).offset(4)
             make.height.width.equalTo(21)
         }
-        
         
         profileImageButton.snp.makeConstraints { make in
             make.top.equalTo(self.friendView.snp.bottom).offset(15)

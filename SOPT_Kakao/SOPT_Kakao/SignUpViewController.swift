@@ -87,7 +87,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        layout()
+        setLayout()
     }
     
     //welcomeVC로 present
@@ -117,7 +117,7 @@ class SignUpViewController: UIViewController {
 
 extension SignUpViewController {
     
-    func layout() {
+    func setLayout() {
         [mainTitleLabel, inputEmailNumberTextField, inputPasswordTextField, checkPasswordTextField, signUpBtn, emailNumberUnderLineView, pwUnderLineView, checkPWUnderLineView].forEach {
             view.addSubview($0)
         }
