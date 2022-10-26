@@ -8,7 +8,6 @@
 import UIKit
 import SnapKit
 
-
 class WelcomeViewController: UIViewController {
     
     //OOO님 환영합니다
@@ -41,11 +40,18 @@ class WelcomeViewController: UIViewController {
     
     func dataBind(name: String) {
         nameLabel.text = "\(name) 님\n 환영합니다"
+        setUserInfo(name: name)
     }
     
+    //RootVC를 변경하는 함수
     func pushToMainVC() {
         let rootVC = MainViewController()
         changeRootViewController(rootVC)
+    }
+    
+    //UserDefaults에 UserName을 담는다
+    func setUserInfo(name: String) {
+        UserDefaults.standard.set(name, forKey: "userName")
     }
     
     @objc

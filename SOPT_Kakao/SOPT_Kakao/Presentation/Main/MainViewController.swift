@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-
+        getUserInfo()
         setLayout()
     }
     
@@ -62,6 +62,16 @@ class MainViewController: UIViewController {
             detailVC.dataBind(name: name)
             detailVC.modalPresentationStyle = .fullScreen
             self.present(detailVC, animated: true, completion: nil)
+        }
+    }
+    
+    // UserDefaults애 있는 정보를 받아옴
+    func getUserInfo() {
+        if nameLabel.text != nil {
+            nameLabel.text = UserDefaults.standard.string(forKey: "userName")
+        }
+        else {
+            print("이름이 없군요!")
         }
     }
     
