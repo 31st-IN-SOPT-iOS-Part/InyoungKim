@@ -118,9 +118,7 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController {
     
     func setLayout() {
-        [mainTitleLabel, inputEmailNumberTextField, inputPasswordTextField, checkPasswordTextField, signUpBtn, emailNumberUnderLineView, pwUnderLineView, checkPWUnderLineView].forEach {
-            view.addSubview($0)
-        }
+        view.addSubViews(mainTitleLabel, inputEmailNumberTextField, inputPasswordTextField, checkPasswordTextField, signUpBtn, emailNumberUnderLineView, pwUnderLineView, checkPWUnderLineView)
         
         //카카오톡을 실행합니다
         mainTitleLabel.snp.makeConstraints { make in

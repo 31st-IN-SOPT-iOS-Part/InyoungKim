@@ -26,9 +26,9 @@ class MainViewController: UIViewController {
         return label
     }()
 
-    private let nameLabel : UILabel = {
+    private var nameLabel : UILabel = {
         let label = UILabel()
-        label.text = "이름이요"
+        label.text = "마이네임이즈"
         return label
     }()
     
@@ -51,11 +51,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setLayout()
-    }
 
-    func dataBind(name: String){
-        nameLabel.text = "\(name)"
+        setLayout()
     }
     
     //profileDetailVC로 present
@@ -89,9 +86,7 @@ extension MainViewController {
         friendView.addSubview(friendLabel)
         friendView.addSubview(settingButton)
         
-        [friendView, profileImageButton, nameLabel].forEach {
-            view.addSubview($0)
-        }
+        view.addSubViews(friendView, profileImageButton, nameLabel)
         
         friendView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide)

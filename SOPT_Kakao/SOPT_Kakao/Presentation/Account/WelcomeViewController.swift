@@ -8,9 +8,8 @@
 import UIKit
 import SnapKit
 
+
 class WelcomeViewController: UIViewController {
-    
-    var name = ""
     
     //OOO님 환영합니다
     private let nameLabel: UILabel = {
@@ -37,18 +36,15 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
         setLayout()
     }
     
     func dataBind(name: String) {
         nameLabel.text = "\(name) 님\n 환영합니다"
-        self.name = name
     }
     
     func pushToMainVC() {
         let rootVC = MainViewController()
-        rootVC.dataBind(name: self.name)
         changeRootViewController(rootVC)
     }
     
@@ -60,10 +56,9 @@ class WelcomeViewController: UIViewController {
 }
 
 extension WelcomeViewController {
+    
     func setLayout() {
-        [nameLabel, backButton].forEach{
-            view.addSubview($0)
-        }
+        view.addSubViews(nameLabel, backButton)
         
         //OO님 환영합니다!
         nameLabel.snp.makeConstraints { make in

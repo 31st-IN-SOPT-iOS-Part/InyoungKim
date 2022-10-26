@@ -30,9 +30,16 @@ extension UIViewController {
     
     // rootViewController를 변경하는 함수
     func changeRootViewController(_ rootViewController: UIViewController) {
-        let mainViewController : UIViewController = MainViewController()
         if let window = view.window?.windowScene?.keyWindow {
-            window.rootViewController = mainViewController
+            window.rootViewController = rootViewController
         }
     }
+}
+
+extension UIView {
+    //MARK: - addSubViews
+    func addSubViews(_ views: UIView...) {
+        views.forEach{self.addSubview($0)}
+    }
+
 }

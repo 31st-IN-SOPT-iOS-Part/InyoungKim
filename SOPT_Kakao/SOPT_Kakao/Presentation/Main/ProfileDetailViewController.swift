@@ -98,9 +98,7 @@ extension ProfileDetailViewController {
     
     func setLayout() {
         
-        [profileTalkButton, profileImageButton, profileStoryButton, profileEditButton, nameLabel, underlineView, backButton].forEach {
-            self.view.addSubview($0)
-        }
+        view.addSubViews(profileTalkButton, profileImageButton, profileStoryButton, profileEditButton, nameLabel, underlineView, backButton)
         
         //프로필이미지
         profileImageButton.snp.makeConstraints { make in

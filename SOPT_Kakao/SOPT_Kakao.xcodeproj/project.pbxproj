@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1443BAFD29090B8700FACF94 /* KakaoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443BAFC29090B8700FACF94 /* KakaoTabBarController.swift */; };
+		1443BB0029090D5E00FACF94 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443BAFF29090D5E00FACF94 /* ChatViewController.swift */; };
+		1443BB022909121100FACF94 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443BB012909121100FACF94 /* MyViewController.swift */; };
+		1443BB042909125200FACF94 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443BB032909125200FACF94 /* ShopViewController.swift */; };
+		1443BB062909127500FACF94 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443BB052909127500FACF94 /* MoreViewController.swift */; };
 		14ADEBE728F311EA00169F84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBE628F311EA00169F84 /* AppDelegate.swift */; };
 		14ADEBE928F311EA00169F84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBE828F311EA00169F84 /* SceneDelegate.swift */; };
 		14ADEBEB28F311EA00169F84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBEA28F311EA00169F84 /* ViewController.swift */; };
@@ -23,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1443BAFC29090B8700FACF94 /* KakaoTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTabBarController.swift; sourceTree = "<group>"; };
+		1443BAFF29090D5E00FACF94 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		1443BB012909121100FACF94 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		1443BB032909125200FACF94 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		1443BB052909127500FACF94 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		14ADEBE328F311EA00169F84 /* SOPT_Kakao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT_Kakao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADEBE628F311EA00169F84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14ADEBE828F311EA00169F84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,14 +61,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1443BAFE29090D3300FACF94 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1443BAFC29090B8700FACF94 /* KakaoTabBarController.swift */,
+				14ADEC9D28F6B79500169F84 /* MainViewController.swift */,
+				14ADEC9F28F729CE00169F84 /* ProfileDetailViewController.swift */,
+				1443BAFF29090D5E00FACF94 /* ChatViewController.swift */,
+				1443BB012909121100FACF94 /* MyViewController.swift */,
+				1443BB032909125200FACF94 /* ShopViewController.swift */,
+				1443BB052909127500FACF94 /* MoreViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1443BB0829091A7400FACF94 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				14ADEBFA28F3120A00169F84 /* SignInViewController.swift */,
+				14ADEBFE28F3125D00169F84 /* WelcomeViewController.swift */,
+				14ADEBFC28F3124C00169F84 /* SignUpViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		149A2C7328F9615500986571 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				14ADEC9F28F729CE00169F84 /* ProfileDetailViewController.swift */,
-				14ADEC9D28F6B79500169F84 /* MainViewController.swift */,
-				14ADEBFC28F3124C00169F84 /* SignUpViewController.swift */,
-				14ADEBFA28F3120A00169F84 /* SignInViewController.swift */,
-				14ADEBFE28F3125D00169F84 /* WelcomeViewController.swift */,
+				1443BB0829091A7400FACF94 /* Account */,
+				1443BAFE29090D3300FACF94 /* Main */,
 				14ADEBEA28F311EA00169F84 /* ViewController.swift */,
 			);
 			path = Presentation;
@@ -190,12 +221,17 @@
 			files = (
 				14ADEBFB28F3120A00169F84 /* SignInViewController.swift in Sources */,
 				14ADECA028F729CE00169F84 /* ProfileDetailViewController.swift in Sources */,
+				1443BB0029090D5E00FACF94 /* ChatViewController.swift in Sources */,
 				14ADEBEB28F311EA00169F84 /* ViewController.swift in Sources */,
+				1443BB042909125200FACF94 /* ShopViewController.swift in Sources */,
 				14ADEBE728F311EA00169F84 /* AppDelegate.swift in Sources */,
 				14ADEBFF28F3125D00169F84 /* WelcomeViewController.swift in Sources */,
+				1443BB062909127500FACF94 /* MoreViewController.swift in Sources */,
 				14ADEC0128F3156000169F84 /* UIView + Extension.swift in Sources */,
 				14ADEBE928F311EA00169F84 /* SceneDelegate.swift in Sources */,
 				14ADEBFD28F3124C00169F84 /* SignUpViewController.swift in Sources */,
+				1443BAFD29090B8700FACF94 /* KakaoTabBarController.swift in Sources */,
+				1443BB022909121100FACF94 /* MyViewController.swift in Sources */,
 				14ADEC9E28F6B79500169F84 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
