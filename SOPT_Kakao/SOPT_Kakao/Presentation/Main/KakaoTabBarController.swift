@@ -50,9 +50,9 @@ extension KakaoTabbarController : UITabBarControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let mainViewController = MainViewController()
-        let mainNavigationController =  UINavigationController(rootViewController: mainViewController)
-        mainNavigationController.navigationBar.isHidden = true
+        let friendListViewController = FriendListViewController()
+        let friendListNavigationController =  UINavigationController(rootViewController: friendListViewController)
+        friendListNavigationController.navigationBar.isHidden = true
         
         let chatViewController = ChatViewController()
         let chatNavigationController = UINavigationController(rootViewController: chatViewController)
@@ -72,7 +72,7 @@ extension KakaoTabbarController : UITabBarControllerDelegate {
         
         
         let viewControllers = [
-            mainNavigationController,
+            friendListNavigationController,
             chatNavigationController,
             myNavigationController,
             shopNavigationController,

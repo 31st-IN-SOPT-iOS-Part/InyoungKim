@@ -45,7 +45,7 @@ class WelcomeViewController: UIViewController {
     
     //RootVC를 변경하는 함수
     func pushToMainVC() {
-        let rootVC = MainViewController()
+        let rootVC = KakaoTabbarController()
         changeRootViewController(rootVC)
     }
     

@@ -12,6 +12,12 @@
 		1443BB022909121100FACF94 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443BB012909121100FACF94 /* MyViewController.swift */; };
 		1443BB042909125200FACF94 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443BB032909125200FACF94 /* ShopViewController.swift */; };
 		1443BB062909127500FACF94 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443BB052909127500FACF94 /* MoreViewController.swift */; };
+		1443BB0B290930EC00FACF94 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443BB0A290930EC00FACF94 /* FriendModel.swift */; };
+		145BC498290FB8C30063B48A /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC497290FB8C30063B48A /* FriendTableViewCell.swift */; };
+		145BC49B290FBAC50063B48A /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 145BC49A290FBAC50063B48A /* Then */; };
+		145BC49D290FC8900063B48A /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC49C290FC8900063B48A /* MyModel.swift */; };
+		145BC49F290FD9600063B48A /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC49E290FD9600063B48A /* ChatModel.swift */; };
+		145BC4A42910156D0063B48A /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC4A32910156D0063B48A /* ChatCollectionViewCell.swift */; };
 		14ADEBE728F311EA00169F84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBE628F311EA00169F84 /* AppDelegate.swift */; };
 		14ADEBE928F311EA00169F84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBE828F311EA00169F84 /* SceneDelegate.swift */; };
 		14ADEBEB28F311EA00169F84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBEA28F311EA00169F84 /* ViewController.swift */; };
@@ -23,7 +29,7 @@
 		14ADEBFF28F3125D00169F84 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBFE28F3125D00169F84 /* WelcomeViewController.swift */; };
 		14ADEC0128F3156000169F84 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEC0028F3156000169F84 /* UIView + Extension.swift */; };
 		14ADEC9C28F5CD2000169F84 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14ADEC9B28F5CD2000169F84 /* SnapKit */; };
-		14ADEC9E28F6B79500169F84 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEC9D28F6B79500169F84 /* MainViewController.swift */; };
+		14ADEC9E28F6B79500169F84 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEC9D28F6B79500169F84 /* FriendListViewController.swift */; };
 		14ADECA028F729CE00169F84 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEC9F28F729CE00169F84 /* ProfileDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +39,11 @@
 		1443BB012909121100FACF94 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		1443BB032909125200FACF94 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		1443BB052909127500FACF94 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		1443BB0A290930EC00FACF94 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		145BC497290FB8C30063B48A /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		145BC49C290FC8900063B48A /* MyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
+		145BC49E290FD9600063B48A /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		145BC4A32910156D0063B48A /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
 		14ADEBE328F311EA00169F84 /* SOPT_Kakao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT_Kakao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADEBE628F311EA00169F84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14ADEBE828F311EA00169F84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +56,7 @@
 		14ADEBFC28F3124C00169F84 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		14ADEBFE28F3125D00169F84 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		14ADEC0028F3156000169F84 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
-		14ADEC9D28F6B79500169F84 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		14ADEC9D28F6B79500169F84 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		14ADEC9F28F729CE00169F84 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14ADEC9C28F5CD2000169F84 /* SnapKit in Frameworks */,
+				145BC49B290FBAC50063B48A /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,12 +77,14 @@
 			isa = PBXGroup;
 			children = (
 				1443BAFC29090B8700FACF94 /* KakaoTabBarController.swift */,
-				14ADEC9D28F6B79500169F84 /* MainViewController.swift */,
+				14ADEC9D28F6B79500169F84 /* FriendListViewController.swift */,
 				14ADEC9F28F729CE00169F84 /* ProfileDetailViewController.swift */,
 				1443BAFF29090D5E00FACF94 /* ChatViewController.swift */,
 				1443BB012909121100FACF94 /* MyViewController.swift */,
 				1443BB032909125200FACF94 /* ShopViewController.swift */,
 				1443BB052909127500FACF94 /* MoreViewController.swift */,
+				145BC497290FB8C30063B48A /* FriendTableViewCell.swift */,
+				145BC4A32910156D0063B48A /* ChatCollectionViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -85,9 +99,20 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		1443BB09290930DD00FACF94 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				1443BB0A290930EC00FACF94 /* FriendModel.swift */,
+				145BC49C290FC8900063B48A /* MyModel.swift */,
+				145BC49E290FD9600063B48A /* ChatModel.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
 		149A2C7328F9615500986571 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1443BB09290930DD00FACF94 /* Friend */,
 				1443BB0829091A7400FACF94 /* Account */,
 				1443BAFE29090D3300FACF94 /* Main */,
 				14ADEBEA28F311EA00169F84 /* ViewController.swift */,
@@ -160,6 +185,7 @@
 			name = SOPT_Kakao;
 			packageProductDependencies = (
 				14ADEC9B28F5CD2000169F84 /* SnapKit */,
+				145BC49A290FBAC50063B48A /* Then */,
 			);
 			productName = SOPT_Kakao;
 			productReference = 14ADEBE328F311EA00169F84 /* SOPT_Kakao.app */;
@@ -191,6 +217,7 @@
 			mainGroup = 14ADEBDA28F311EA00169F84;
 			packageReferences = (
 				14ADEC9A28F5CD2000169F84 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				145BC499290FBAC50063B48A /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 14ADEBE428F311EA00169F84 /* Products */;
 			projectDirPath = "";
@@ -221,6 +248,7 @@
 			files = (
 				14ADEBFB28F3120A00169F84 /* SignInViewController.swift in Sources */,
 				14ADECA028F729CE00169F84 /* ProfileDetailViewController.swift in Sources */,
+				145BC4A42910156D0063B48A /* ChatCollectionViewCell.swift in Sources */,
 				1443BB0029090D5E00FACF94 /* ChatViewController.swift in Sources */,
 				14ADEBEB28F311EA00169F84 /* ViewController.swift in Sources */,
 				1443BB042909125200FACF94 /* ShopViewController.swift in Sources */,
@@ -229,10 +257,14 @@
 				1443BB062909127500FACF94 /* MoreViewController.swift in Sources */,
 				14ADEC0128F3156000169F84 /* UIView + Extension.swift in Sources */,
 				14ADEBE928F311EA00169F84 /* SceneDelegate.swift in Sources */,
+				1443BB0B290930EC00FACF94 /* FriendModel.swift in Sources */,
 				14ADEBFD28F3124C00169F84 /* SignUpViewController.swift in Sources */,
 				1443BAFD29090B8700FACF94 /* KakaoTabBarController.swift in Sources */,
+				145BC49D290FC8900063B48A /* MyModel.swift in Sources */,
 				1443BB022909121100FACF94 /* MyViewController.swift in Sources */,
-				14ADEC9E28F6B79500169F84 /* MainViewController.swift in Sources */,
+				14ADEC9E28F6B79500169F84 /* FriendListViewController.swift in Sources */,
+				145BC498290FB8C30063B48A /* FriendTableViewCell.swift in Sources */,
+				145BC49F290FD9600063B48A /* ChatModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +482,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		145BC499290FBAC50063B48A /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		14ADEC9A28F5CD2000169F84 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -461,6 +501,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		145BC49A290FBAC50063B48A /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 145BC499290FBAC50063B48A /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
 		14ADEC9B28F5CD2000169F84 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 14ADEC9A28F5CD2000169F84 /* XCRemoteSwiftPackageReference "SnapKit" */;
