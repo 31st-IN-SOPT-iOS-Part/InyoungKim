@@ -21,7 +21,6 @@ class ChatCollectionViewCell: UICollectionViewCell {
         $0.textColor = .black
         $0.font = .systemFont(ofSize: 17, weight: .medium)
     }
-    
     private let chatMessageLabel = UILabel().then {
         $0.textColor = .gray
         $0.font = .systemFont(ofSize: 15, weight: .medium)
@@ -37,6 +36,7 @@ class ChatCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
 }
 
 // MARK: - Extensions
@@ -48,6 +48,8 @@ extension ChatCollectionViewCell {
     private func layout() {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
+
+        
         [chatContainerView, chatNameLabel, chatMessageLabel].forEach {
             contentView.addSubview($0)
         }

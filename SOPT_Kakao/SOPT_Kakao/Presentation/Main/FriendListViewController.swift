@@ -69,7 +69,6 @@ class FriendListViewController: UIViewController {
     
     // UserDefaults애 있는 정보를 받아옴
     func getUserInfo() {
-//        var name = UserDefaults.standard.string(forKey: "userName")
         if nameLabel.text != nil {
             nameLabel.text = UserDefaults.standard.string(forKey: "userName")
         } else {

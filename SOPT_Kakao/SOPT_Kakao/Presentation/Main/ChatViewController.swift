@@ -45,19 +45,89 @@ class ChatViewController: UIViewController {
         ChatModel(name: "하솝트", profileImage: "profileImage9", message: "공부시로링"),
     ]
     
+    //MARK: - 상단 바
+    private let topBarView = UIView()
+    // 채팅 라벨
+    private let chatLabel = UILabel().then {
+        $0.text = "친구"
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: 22, weight: .medium)
+    }
+    //오픈채팅 라벨
+    private let openChatLabel = UILabel().then {
+        $0.text = "오픈채팅"
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: 22, weight: .medium)
+    }
+    //add 버튼
+    private lazy var addButton : UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "iconPlus"), for: .normal)
+        button.addTarget(self, action: #selector(touchupAddButton), for: .touchUpInside)
+        return button
+    }()
+    // 설정 버튼
+    private lazy var settingButton = UIButton().then {
+        $0.setBackgroundImage(UIImage(named : "settings1"), for: .normal)
+        $0.addTarget(self, action: #selector(touchupSettingButton), for: .touchUpInside)
+    }
+    
+    //settingButton
+    @objc
+    func touchupSettingButton() {
+        print("setting")
+    }
+    //addButton
+    @objc func touchupAddButton() {
+        print("Add")
+    }
 }
 
 extension ChatViewController {
     
     private func layout() {
-            view.backgroundColor = .white
-            view.addSubview(chatCollectionView)
-            chatCollectionView.snp.makeConstraints {
-                $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-                $0.bottom.equalToSuperview()
-                $0.height.equalTo(chatList.count * 50)
-            }
+        view.backgroundColor = .white
+        
+        view.addSubview(topBarView)
+        [chatLabel, openChatLabel, addButton, settingButton].forEach{
+            topBarView.addSubview($0)
         }
+        
+        view.addSubview(chatCollectionView)
+        chatCollectionView.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(chatList.count * 50)
+        }
+        
+        topBarView.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            make.height.equalTo(52)
+        }
+        
+        chatLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(self.topBarView.snp.centerY)
+            make.leading.equalTo(self.topBarView.snp.leading).offset(14)
+        }
+        
+        openChatLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(chatLabel)
+            make.leading.equalTo(chatLabel.snp.trailing).offset(7)
+        }
+        
+        settingButton.snp.makeConstraints { make in
+            make.centerY.equalTo(chatLabel)
+            make.trailing.equalTo(self.topBarView.snp.trailing).offset(-15)
+            make.height.width.equalTo(19)
+        }
+        
+        addButton.snp.makeConstraints { make in
+            make.centerY.equalTo(chatLabel)
+            make.trailing.equalTo(self.settingButton.snp.leading).offset(-16)
+            make.height.width.equalTo(19)
+        }
+    }
         
         // MARK: - General Helpers
         
