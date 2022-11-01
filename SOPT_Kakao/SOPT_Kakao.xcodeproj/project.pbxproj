@@ -21,6 +21,7 @@
 		145BC4A629104FC10063B48A /* ChatHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC4A529104FC10063B48A /* ChatHeaderCollectionReusableView.swift */; };
 		145BC4A82910DC0A0063B48A /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC4A72910DC0A0063B48A /* PhotoCollectionViewController.swift */; };
 		145BC4AA2910DFE80063B48A /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC4A92910DFE80063B48A /* PhotoModel.swift */; };
+		145BC4AC29118EB90063B48A /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC4AB29118EB90063B48A /* PhotoCollectionViewCell.swift */; };
 		14ADEBE728F311EA00169F84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBE628F311EA00169F84 /* AppDelegate.swift */; };
 		14ADEBE928F311EA00169F84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBE828F311EA00169F84 /* SceneDelegate.swift */; };
 		14ADEBEB28F311EA00169F84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBEA28F311EA00169F84 /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		145BC4A529104FC10063B48A /* ChatHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		145BC4A72910DC0A0063B48A /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		145BC4A92910DFE80063B48A /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		145BC4AB29118EB90063B48A /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		14ADEBE328F311EA00169F84 /* SOPT_Kakao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT_Kakao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADEBE628F311EA00169F84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14ADEBE828F311EA00169F84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				145BC4A529104FC10063B48A /* ChatHeaderCollectionReusableView.swift */,
 				145BC4A72910DC0A0063B48A /* PhotoCollectionViewController.swift */,
 				145BC4A92910DFE80063B48A /* PhotoModel.swift */,
+				145BC4AB29118EB90063B48A /* PhotoCollectionViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				145BC4A629104FC10063B48A /* ChatHeaderCollectionReusableView.swift in Sources */,
 				14ADEBE728F311EA00169F84 /* AppDelegate.swift in Sources */,
 				145BC4AA2910DFE80063B48A /* PhotoModel.swift in Sources */,
+				145BC4AC29118EB90063B48A /* PhotoCollectionViewCell.swift in Sources */,
 				14ADEBFF28F3125D00169F84 /* WelcomeViewController.swift in Sources */,
 				1443BB062909127500FACF94 /* MoreViewController.swift in Sources */,
 				14ADEC0128F3156000169F84 /* UIView + Extension.swift in Sources */,

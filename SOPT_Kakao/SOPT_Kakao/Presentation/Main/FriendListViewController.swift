@@ -10,6 +10,7 @@ import SnapKit
 
 class FriendListViewController: UIViewController {
     
+    //MARK: - UI Components
     //친구 View
     private let friendView : UIView = {
         let view = UIView()
@@ -131,8 +132,7 @@ extension FriendListViewController {
     func setLayout() {
         
         // 친구, 설정버튼을 friendView에 추가
-        friendView.addSubview(friendLabel)
-        friendView.addSubview(settingButton)
+        friendView.addSubViews(friendLabel, settingButton)
         
         settingButton.snp.makeConstraints { make in
             make.centerX.equalTo(friendLabel)

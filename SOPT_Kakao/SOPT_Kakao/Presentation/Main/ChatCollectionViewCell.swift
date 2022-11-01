@@ -88,7 +88,7 @@ extension ChatCollectionViewCell {
     
     // MARK: - General Helpers
     
-    func dataBind(model: ChatModel){
+    func dataBind(model: ChatModel) {
         chatNameLabel.text = model.name
         chatImageView.image = UIImage(named: model.profileImage)
         chatMessageLabel.text = model.message

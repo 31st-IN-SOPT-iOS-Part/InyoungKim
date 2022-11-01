@@ -13,11 +13,12 @@ class PhotoCollectionViewController: UIViewController {
     
     //MARK: - UIComponents
     //상단 바
-    private let topBarView = UIView()
+    private let topBarView = UIView().then {
+        $0.backgroundColor = .white
+    }
     
     private lazy var backButton = UIButton().then {
-        $0.setBackgroundImage(UIImage(named: "profile_closeBtn"), for: .normal)
-        $0.tintColor = .black
+        $0.setImage(UIImage(named: "iconClose"), for: .normal)
         $0.addTarget(self, action: #selector(tapBackButton), for: .touchUpInside)
     }
     
@@ -31,16 +32,15 @@ class PhotoCollectionViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isScrollEnabled = true
         collectionView.showsVerticalScrollIndicator = true
-        //collectionView.delegate = self
-        //collectionView.dataSource = self
-        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         return collectionView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        //register()
+        register()
         
     }
     
@@ -71,11 +71,15 @@ class PhotoCollectionViewController: UIViewController {
         PhotoModel(photo: "galleryImage23"),
     ]
     
+    final let photoInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
+    final let photoLineSpacing: CGFloat = 7
+    final let photoInterItemSpacing: CGFloat = 9
+    final let photoCellHeight: CGFloat = 119
+    
     //backButton
     @objc
     func tapBackButton() {
-        print("back")
-        //self.dismiss(animated: true)
+        self.dismiss(animated: true)
     }
 }
 
@@ -83,7 +87,8 @@ extension PhotoCollectionViewController {
     
     func layout() {
         view.backgroundColor = .white
-        view.addSubview(topBarView)
+        view.addSubViews(topBarView, photoCollectionView)
+        
         topBarView.addSubview(backButton)
         
         topBarView.snp.makeConstraints { make in
@@ -96,67 +101,69 @@ extension PhotoCollectionViewController {
             make.leading.equalTo(topBarView).offset(12)
             make.height.width.equalTo(24)
         }
+        
+        //collectionView layout
+        photoCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(topBarView.snp.bottom)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalToSuperview()
+            make.height.equalTo(calculateHeight())
+        }
+        
+    
     }
     
+    // collectionView의 height 계산
+    func calculateHeight() -> CGFloat {
+        let count = CGFloat(photoList.count)
+        let remainder : Double
+        
+        if count.truncatingRemainder(dividingBy: 3) != 0 {
+            remainder = 1
+        } else {
+            remainder = 0
+        }
+        
+        let heightCount = count / 3 + remainder
+        
+        return heightCount * photoCellHeight + (heightCount - 1) * photoLineSpacing + photoInset.top + photoInset.bottom
+    }
     
-//    func register() {
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-//    }
+    private func register() {
+        photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
+    }
 }
 
 
-//// MARK: UICollectionViewDataSource
-//extension PhotoCollectionViewController : UICollectionViewDataSource {
-//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//
-//    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of items
-//        return 0
-//    }
-//
-//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-//
-//        // Configure the cell
-//
-//        return cell
-//    }
-//}
+extension PhotoCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        let doubleCellWidth = screenWidth - photoInset.left - photoInset.right - photoInterItemSpacing * 2
+        return CGSize(width: doubleCellWidth / 3, height: photoCellHeight)
+    }
 
-//extension PhotoCollectionViewController : UICollectionViewDelegate {
-//    // MARK: UICollectionViewDelegate
-//
-//    /*
-//    // Uncomment this method to specify if the specified item should be highlighted during tracking
-//    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//    */
-//
-//    /*
-//    // Uncomment this method to specify if the specified item should be selected
-//    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//    */
-//
-//    /*
-//    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-//    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-//        return false
-//    }
-//
-//    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-//        return false
-//    }
-//
-//    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-//
-//    }
-//    */
-//
-//}
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return photoLineSpacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return photoInterItemSpacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return photoInset
+    }
+}
+
+extension PhotoCollectionViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photoList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let photoCell = photoCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
+        photoCell.dataBind(model: photoList[indexPath.item])
+        return photoCell
+        
+    }
+}
