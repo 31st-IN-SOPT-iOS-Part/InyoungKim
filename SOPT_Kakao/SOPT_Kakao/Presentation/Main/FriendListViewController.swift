@@ -35,7 +35,7 @@ class FriendListViewController: UIViewController {
     // 설정 버튼
     private lazy var settingButton : UIButton = {
         let settingBtn = UIButton()
-        settingBtn.setBackgroundImage(UIImage(named : "settings1"), for: .normal)
+        settingBtn.setBackgroundImage(UIImage(named : "settings1"), for: .focused)
         settingBtn.addTarget(self, action: #selector(touchupSettingButton), for: .touchUpInside)
         return settingBtn
     }()

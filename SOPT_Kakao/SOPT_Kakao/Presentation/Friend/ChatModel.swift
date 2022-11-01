@@ -11,4 +11,5 @@ struct ChatModel {
     let name : String
     let profileImage : String
     let message : String
+    let sendTime: String
 }

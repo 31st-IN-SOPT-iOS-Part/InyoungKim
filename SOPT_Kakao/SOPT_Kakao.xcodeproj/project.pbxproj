@@ -18,6 +18,9 @@
 		145BC49D290FC8900063B48A /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC49C290FC8900063B48A /* MyModel.swift */; };
 		145BC49F290FD9600063B48A /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC49E290FD9600063B48A /* ChatModel.swift */; };
 		145BC4A42910156D0063B48A /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC4A32910156D0063B48A /* ChatCollectionViewCell.swift */; };
+		145BC4A629104FC10063B48A /* ChatHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC4A529104FC10063B48A /* ChatHeaderCollectionReusableView.swift */; };
+		145BC4A82910DC0A0063B48A /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC4A72910DC0A0063B48A /* PhotoCollectionViewController.swift */; };
+		145BC4AA2910DFE80063B48A /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC4A92910DFE80063B48A /* PhotoModel.swift */; };
 		14ADEBE728F311EA00169F84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBE628F311EA00169F84 /* AppDelegate.swift */; };
 		14ADEBE928F311EA00169F84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBE828F311EA00169F84 /* SceneDelegate.swift */; };
 		14ADEBEB28F311EA00169F84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBEA28F311EA00169F84 /* ViewController.swift */; };
@@ -44,6 +47,9 @@
 		145BC49C290FC8900063B48A /* MyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
 		145BC49E290FD9600063B48A /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		145BC4A32910156D0063B48A /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
+		145BC4A529104FC10063B48A /* ChatHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		145BC4A72910DC0A0063B48A /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		145BC4A92910DFE80063B48A /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		14ADEBE328F311EA00169F84 /* SOPT_Kakao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT_Kakao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADEBE628F311EA00169F84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14ADEBE828F311EA00169F84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +91,9 @@
 				1443BB052909127500FACF94 /* MoreViewController.swift */,
 				145BC497290FB8C30063B48A /* FriendTableViewCell.swift */,
 				145BC4A32910156D0063B48A /* ChatCollectionViewCell.swift */,
+				145BC4A529104FC10063B48A /* ChatHeaderCollectionReusableView.swift */,
+				145BC4A72910DC0A0063B48A /* PhotoCollectionViewController.swift */,
+				145BC4A92910DFE80063B48A /* PhotoModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -252,7 +261,9 @@
 				1443BB0029090D5E00FACF94 /* ChatViewController.swift in Sources */,
 				14ADEBEB28F311EA00169F84 /* ViewController.swift in Sources */,
 				1443BB042909125200FACF94 /* ShopViewController.swift in Sources */,
+				145BC4A629104FC10063B48A /* ChatHeaderCollectionReusableView.swift in Sources */,
 				14ADEBE728F311EA00169F84 /* AppDelegate.swift in Sources */,
+				145BC4AA2910DFE80063B48A /* PhotoModel.swift in Sources */,
 				14ADEBFF28F3125D00169F84 /* WelcomeViewController.swift in Sources */,
 				1443BB062909127500FACF94 /* MoreViewController.swift in Sources */,
 				14ADEC0128F3156000169F84 /* UIView + Extension.swift in Sources */,
@@ -261,6 +272,7 @@
 				14ADEBFD28F3124C00169F84 /* SignUpViewController.swift in Sources */,
 				1443BAFD29090B8700FACF94 /* KakaoTabBarController.swift in Sources */,
 				145BC49D290FC8900063B48A /* MyModel.swift in Sources */,
+				145BC4A82910DC0A0063B48A /* PhotoCollectionViewController.swift in Sources */,
 				1443BB022909121100FACF94 /* MyViewController.swift in Sources */,
 				14ADEC9E28F6B79500169F84 /* FriendListViewController.swift in Sources */,
 				145BC498290FB8C30063B48A /* FriendTableViewCell.swift in Sources */,

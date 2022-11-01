@@ -21,7 +21,7 @@ class ChatViewController: UIViewController {
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isScrollEnabled = true
-        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = true
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
@@ -34,15 +34,20 @@ class ChatViewController: UIViewController {
     }
 
     var chatList : [ChatModel] = [
-        ChatModel(name: "안솝트", profileImage: "profileImage1", message: "언제 볼건데??"),
-        ChatModel(name: "최솝트", profileImage: "profileImage2", message: "피곤해요"),
-        ChatModel(name: "정솝트", profileImage: "profileImage3", message: "아요 짱"),
-        ChatModel(name: "강솝트", profileImage: "profileImage4", message: "솝트 짱"),
-        ChatModel(name: "오솝트", profileImage: "profileImage5", message: "유대"),
-        ChatModel(name: "황솝트", profileImage: "profileImage6", message: "몰입"),
-        ChatModel(name: "최솝트", profileImage: "profileImage7", message: "도전"),
-        ChatModel(name: "고솝트", profileImage: "profileImage8", message: "하암"),
-        ChatModel(name: "하솝트", profileImage: "profileImage9", message: "공부시로링"),
+        ChatModel(name: "안솝트", profileImage: "profileImage1", message: "자고싶냐??", sendTime: "오후 9:41"),
+        ChatModel(name: "최솝트", profileImage: "profileImage2", message: "피곤해요", sendTime: "오후 9:41"),
+        ChatModel(name: "정솝트", profileImage: "profileImage3", message: "아요 짱", sendTime: "오후 9:41"),
+        ChatModel(name: "강솝트", profileImage: "profileImage4", message: "솝트 짱", sendTime: "오후 9:41"),
+        ChatModel(name: "오솝트", profileImage: "profileImage5", message: "유대", sendTime: "오후 9:41"),
+        ChatModel(name: "황솝트", profileImage: "profileImage6", message: "몰입", sendTime: "오후 9:41"),
+        ChatModel(name: "최솝트", profileImage: "profileImage7", message: "도전", sendTime: "오후 9:41"),
+        ChatModel(name: "고솝트", profileImage: "profileImage8", message: "하암", sendTime: "오후 9:41"),
+        ChatModel(name: "하솝트", profileImage: "profileImage9", message: "띠로리", sendTime: "오후 9:41"),
+        ChatModel(name: "황솝트", profileImage: "profileImage6", message: "오예", sendTime: "오후 9:41"),
+        ChatModel(name: "최솝트", profileImage: "profileImage7", message: "야호", sendTime: "오후 9:41"),
+        ChatModel(name: "고솝트", profileImage: "profileImage8", message: "가을이다", sendTime: "오후 9:41"),
+        ChatModel(name: "하솝트", profileImage: "profileImage9", message: "놀러가고싶다", sendTime: "오후 9:41"),
+        ChatModel(name: "최솝트", profileImage: "profileImage7", message: "자라", sendTime: "오후 9:41"),
     ]
     
     //MARK: - 상단 바
@@ -51,13 +56,13 @@ class ChatViewController: UIViewController {
     private let chatLabel = UILabel().then {
         $0.text = "친구"
         $0.textColor = .black
-        $0.font = .systemFont(ofSize: 22, weight: .medium)
+        $0.font = .systemFont(ofSize: 22, weight: .semibold)
     }
     //오픈채팅 라벨
     private let openChatLabel = UILabel().then {
         $0.text = "오픈채팅"
         $0.textColor = .black
-        $0.font = .systemFont(ofSize: 22, weight: .medium)
+        $0.font = .systemFont(ofSize: 22, weight: .semibold)
     }
     //add 버튼
     private lazy var addButton : UIButton = {
@@ -79,7 +84,14 @@ class ChatViewController: UIViewController {
     }
     //addButton
     @objc func touchupAddButton() {
-        print("Add")
+        presentToPhotoCollectionViewController()
+    }
+    
+    //MARK: - present to PhotoCollectionVC
+    private func presentToPhotoCollectionViewController() {
+        let photoCollectionVC = PhotoCollectionViewController()
+        photoCollectionVC.modalPresentationStyle = .fullScreen
+        self.present(photoCollectionVC, animated: true)
     }
 }
 
@@ -95,7 +107,8 @@ extension ChatViewController {
         
         view.addSubview(chatCollectionView)
         chatCollectionView.snp.makeConstraints {
-            $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.top.equalTo(topBarView.snp.bottom)
+            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             $0.bottom.equalToSuperview()
             $0.height.equalTo(chatList.count * 50)
         }
@@ -127,18 +140,22 @@ extension ChatViewController {
             make.trailing.equalTo(self.settingButton.snp.leading).offset(-16)
             make.height.width.equalTo(19)
         }
+        
     }
         
-        // MARK: - General Helpers
+    // MARK: - Register
         
-        private func register() {
-            chatCollectionView.register(
-                ChatCollectionViewCell.self,
-                forCellWithReuseIdentifier: ChatCollectionViewCell.identifier
-            )
-        }
+    private func register() {
+        chatCollectionView.register(
+            ChatCollectionViewCell.self,
+            forCellWithReuseIdentifier: ChatCollectionViewCell.identifier
+        )
+        chatCollectionView.register(
+            ChatHeaderCollectionReusableView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: ChatHeaderCollectionReusableView.viewIdentifier)
+    }
 }
-
 
 extension ChatViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -154,7 +171,18 @@ extension ChatViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 50, left: 0, bottom: 10, right: 0)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ChatHeaderCollectionReusableView.viewIdentifier, for: indexPath) as? ChatHeaderCollectionReusableView else {return UICollectionReusableView()}
+        
+        return header
+    }
+        
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let width = collectionView.frame.width
+        return CGSize(width: width, height: 80)
     }
 }
 

@@ -19,11 +19,15 @@ class ChatCollectionViewCell: UICollectionViewCell {
     private let chatImageView = UIImageView()
     private let chatNameLabel = UILabel().then {
         $0.textColor = .black
-        $0.font = .systemFont(ofSize: 17, weight: .medium)
+        $0.font = .systemFont(ofSize: 12, weight: .semibold)
     }
     private let chatMessageLabel = UILabel().then {
         $0.textColor = .gray
-        $0.font = .systemFont(ofSize: 15, weight: .medium)
+        $0.font = .systemFont(ofSize: 11, weight: .medium)
+    }
+    private let sendTimeLabel = UILabel().then {
+        $0.textColor = .gray
+        $0.font = .systemFont(ofSize: 8, weight: .medium)
     }
     
     // MARK: - Life Cycles
@@ -50,11 +54,12 @@ extension ChatCollectionViewCell {
         contentView.backgroundColor = .clear
 
         
-        [chatContainerView, chatNameLabel, chatMessageLabel].forEach {
+        [chatContainerView, chatNameLabel, chatMessageLabel, sendTimeLabel].forEach {
             contentView.addSubview($0)
         }
         
         chatContainerView.addSubview(chatImageView)
+        
         chatContainerView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(20)
@@ -74,6 +79,11 @@ extension ChatCollectionViewCell {
             $0.top.equalTo(chatNameLabel.snp.bottom).offset(1)
             $0.leading.equalTo(chatNameLabel)
         }
+        
+        sendTimeLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(10)
+            $0.trailing.equalToSuperview().inset(16)
+        }
     }
     
     // MARK: - General Helpers
@@ -82,5 +92,6 @@ extension ChatCollectionViewCell {
         chatNameLabel.text = model.name
         chatImageView.image = UIImage(named: model.profileImage)
         chatMessageLabel.text = model.message
+        sendTimeLabel.text = model.sendTime
     }
 }
