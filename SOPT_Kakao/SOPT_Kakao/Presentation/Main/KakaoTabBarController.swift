@@ -25,23 +25,16 @@ class KakaoTabbarController: UITabBarController {
             self.selectedIndex = defaultIndex
         }
     }
-    
-    private let clientTabbar = KakaoTabbar()
+
+    private let kakaoTabbar = KakaoTabbar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.selectedIndex = defaultIndex
-        self.setValue(clientTabbar, forKey: "tabBar")
+        self.setValue(kakaoTabbar, forKey: "tabBar")
         object_setClass(self.tabBar, KakaoTabbar.self)
-        self.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        self.tabBar.layer.cornerRadius = 0
         self.tabBar.itemPositioning = .centered
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-
     }
 }
 

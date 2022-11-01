@@ -12,11 +12,27 @@ import Then
 class PhotoCollectionViewController: UIViewController {
     
     //MARK: - UIComponents
-    //상단 바
+    // 상단 바
     private let topBarView = UIView().then {
         $0.backgroundColor = .white
     }
     
+    // 최근 항목
+    private let recentLabel = UILabel().then {
+        $0.text = "최근 항목"
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: 16, weight: .regular)
+    }
+    
+    // 전송 버튼
+    private lazy var sendButton = UIButton().then {
+        $0.setTitle("전송", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
+        $0.titleLabel?.font = .systemFont(ofSize: 14, weight: .regular)
+        $0.addTarget(self, action: #selector(tapSendButton), for: .touchUpInside)
+    }
+    
+    // backButton
     private lazy var backButton = UIButton().then {
         $0.setImage(UIImage(named: "iconClose"), for: .normal)
         $0.addTarget(self, action: #selector(tapBackButton), for: .touchUpInside)
@@ -46,6 +62,7 @@ class PhotoCollectionViewController: UIViewController {
     
     //MARK: -  PhotoList
     var photoList: [PhotoModel] = [
+        PhotoModel(photo: "Frame 17"),
         PhotoModel(photo: "galleryImage1"),
         PhotoModel(photo: "galleryImage2"),
         PhotoModel(photo: "galleryImage3"),
@@ -81,6 +98,11 @@ class PhotoCollectionViewController: UIViewController {
     func tapBackButton() {
         self.dismiss(animated: true)
     }
+    //sendButton
+    @objc
+    func tapSendButton() {
+        print("전송완")
+    }
 }
 
 extension PhotoCollectionViewController {
@@ -89,7 +111,7 @@ extension PhotoCollectionViewController {
         view.backgroundColor = .white
         view.addSubViews(topBarView, photoCollectionView)
         
-        topBarView.addSubview(backButton)
+        topBarView.addSubViews(backButton, recentLabel, sendButton)
         
         topBarView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
@@ -98,8 +120,17 @@ extension PhotoCollectionViewController {
         
         backButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(topBarView).offset(12)
+            make.leading.equalToSuperview().offset(12)
             make.height.width.equalTo(24)
+        }
+        
+        recentLabel.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+        }
+        
+        sendButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-10)
         }
         
         //collectionView layout
@@ -136,6 +167,7 @@ extension PhotoCollectionViewController {
 
 
 extension PhotoCollectionViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
         let doubleCellWidth = screenWidth - photoInset.left - photoInset.right - photoInterItemSpacing * 2
@@ -164,6 +196,5 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
         guard let photoCell = photoCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
         photoCell.dataBind(model: photoList[indexPath.item])
         return photoCell
-        
     }
 }

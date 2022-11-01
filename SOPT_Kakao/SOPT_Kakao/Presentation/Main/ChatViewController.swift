@@ -8,8 +8,6 @@
 import UIKit
 
 class ChatViewController: UIViewController {
-
-    //MARK: -  UI Components
     
     
     //MARK: - ChatCollectionView
@@ -67,7 +65,7 @@ class ChatViewController: UIViewController {
     //add 버튼
     private lazy var addButton : UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "iconPlus"), for: .normal)
+        button.setImage(UIImage(named: "iconPlus"), for: .normal)
         button.addTarget(self, action: #selector(touchupAddButton), for: .touchUpInside)
         return button
     }()
