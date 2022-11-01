@@ -24,7 +24,6 @@
 		145BC4AC29118EB90063B48A /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BC4AB29118EB90063B48A /* PhotoCollectionViewCell.swift */; };
 		14ADEBE728F311EA00169F84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBE628F311EA00169F84 /* AppDelegate.swift */; };
 		14ADEBE928F311EA00169F84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBE828F311EA00169F84 /* SceneDelegate.swift */; };
-		14ADEBEB28F311EA00169F84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEBEA28F311EA00169F84 /* ViewController.swift */; };
 		14ADEBEE28F311EA00169F84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ADEBEC28F311EA00169F84 /* Main.storyboard */; };
 		14ADEBF028F311EB00169F84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADEBEF28F311EB00169F84 /* Assets.xcassets */; };
 		14ADEBF328F311EB00169F84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ADEBF128F311EB00169F84 /* LaunchScreen.storyboard */; };
@@ -55,7 +54,6 @@
 		14ADEBE328F311EA00169F84 /* SOPT_Kakao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT_Kakao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADEBE628F311EA00169F84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14ADEBE828F311EA00169F84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		14ADEBEA28F311EA00169F84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		14ADEBED28F311EA00169F84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14ADEBEF28F311EB00169F84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14ADEBF228F311EB00169F84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,19 +82,12 @@
 		1443BAFE29090D3300FACF94 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1443BAFC29090B8700FACF94 /* KakaoTabBarController.swift */,
-				14ADEC9D28F6B79500169F84 /* FriendListViewController.swift */,
-				14ADEC9F28F729CE00169F84 /* ProfileDetailViewController.swift */,
-				1443BAFF29090D5E00FACF94 /* ChatViewController.swift */,
-				1443BB012909121100FACF94 /* MyViewController.swift */,
-				1443BB032909125200FACF94 /* ShopViewController.swift */,
-				1443BB052909127500FACF94 /* MoreViewController.swift */,
-				145BC497290FB8C30063B48A /* FriendTableViewCell.swift */,
-				145BC4A32910156D0063B48A /* ChatCollectionViewCell.swift */,
-				145BC4A529104FC10063B48A /* ChatHeaderCollectionReusableView.swift */,
-				145BC4A72910DC0A0063B48A /* PhotoCollectionViewController.swift */,
-				145BC4A92910DFE80063B48A /* PhotoModel.swift */,
-				145BC4AB29118EB90063B48A /* PhotoCollectionViewCell.swift */,
+				145BC4B22911B98A0063B48A /* Base */,
+				145BC4B12911B9780063B48A /* Shop */,
+				145BC4B02911B96F0063B48A /* More */,
+				145BC4AF2911B9580063B48A /* Photo */,
+				145BC4AE2911B8AE0063B48A /* Chat */,
+				145BC4AD2911B8640063B48A /* Friend */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -111,23 +102,77 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
-		1443BB09290930DD00FACF94 /* Friend */ = {
+		1443BB09290930DD00FACF94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				1443BB0A290930EC00FACF94 /* FriendModel.swift */,
+				145BC4A92910DFE80063B48A /* PhotoModel.swift */,
 				145BC49C290FC8900063B48A /* MyModel.swift */,
 				145BC49E290FD9600063B48A /* ChatModel.swift */,
 			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		145BC4AD2911B8640063B48A /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				14ADEC9F28F729CE00169F84 /* ProfileDetailViewController.swift */,
+				145BC497290FB8C30063B48A /* FriendTableViewCell.swift */,
+				14ADEC9D28F6B79500169F84 /* FriendListViewController.swift */,
+			);
 			path = Friend;
+			sourceTree = "<group>";
+		};
+		145BC4AE2911B8AE0063B48A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				145BC4A32910156D0063B48A /* ChatCollectionViewCell.swift */,
+				145BC4A529104FC10063B48A /* ChatHeaderCollectionReusableView.swift */,
+				1443BAFF29090D5E00FACF94 /* ChatViewController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		145BC4AF2911B9580063B48A /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				145BC4AB29118EB90063B48A /* PhotoCollectionViewCell.swift */,
+				145BC4A72910DC0A0063B48A /* PhotoCollectionViewController.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		145BC4B02911B96F0063B48A /* More */ = {
+			isa = PBXGroup;
+			children = (
+				1443BB052909127500FACF94 /* MoreViewController.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		145BC4B12911B9780063B48A /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				1443BB032909125200FACF94 /* ShopViewController.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		145BC4B22911B98A0063B48A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1443BB012909121100FACF94 /* MyViewController.swift */,
+				1443BAFC29090B8700FACF94 /* KakaoTabBarController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		149A2C7328F9615500986571 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				1443BB09290930DD00FACF94 /* Friend */,
+				1443BB09290930DD00FACF94 /* Model */,
 				1443BB0829091A7400FACF94 /* Account */,
 				1443BAFE29090D3300FACF94 /* Main */,
-				14ADEBEA28F311EA00169F84 /* ViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -262,7 +307,6 @@
 				14ADECA028F729CE00169F84 /* ProfileDetailViewController.swift in Sources */,
 				145BC4A42910156D0063B48A /* ChatCollectionViewCell.swift in Sources */,
 				1443BB0029090D5E00FACF94 /* ChatViewController.swift in Sources */,
-				14ADEBEB28F311EA00169F84 /* ViewController.swift in Sources */,
 				1443BB042909125200FACF94 /* ShopViewController.swift in Sources */,
 				145BC4A629104FC10063B48A /* ChatHeaderCollectionReusableView.swift in Sources */,
 				14ADEBE728F311EA00169F84 /* AppDelegate.swift in Sources */,
