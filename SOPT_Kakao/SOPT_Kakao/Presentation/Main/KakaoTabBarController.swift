@@ -35,7 +35,7 @@ class KakaoTabbarController: UITabBarController {
         self.setValue(clientTabbar, forKey: "tabBar")
         object_setClass(self.tabBar, KakaoTabbar.self)
         self.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        self.tabBar.layer.cornerRadius = 20
+        self.tabBar.layer.cornerRadius = 0
         self.tabBar.itemPositioning = .centered
     }
     

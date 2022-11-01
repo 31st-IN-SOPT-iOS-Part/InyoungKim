@@ -90,7 +90,7 @@ class ChatViewController: UIViewController {
     //MARK: - present to PhotoCollectionVC
     private func presentToPhotoCollectionViewController() {
         let photoCollectionVC = PhotoCollectionViewController()
-        photoCollectionVC.modalPresentationStyle = .fullScreen
+        photoCollectionVC.modalPresentationStyle = .currentContext
         self.present(photoCollectionVC, animated: true)
     }
 }
