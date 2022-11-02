@@ -193,25 +193,25 @@ extension FriendListViewController : UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    //내 프로필은 swipe되지 않도록 설정함
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    // UISwipeActionConfiguration를 이용한 delete
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if indexPath.row == 0 {
-            return .none
+            print("나를 삭제하지마..")
+            return nil
         } else {
-            return .delete
+            let deleteAction  = UIContextualAction(
+                style: .destructive,
+                title: "delete") {
+                    action, view, completionHandler in
+                    if indexPath.row == 0 {
+                        completionHandler(false)
+                    } else {
+                        self.friendList.remove(at: indexPath.row)
+                        self.friendTableView.reloadData()
+                        completionHandler(true)
+                    }
+                }
+            return UISwipeActionsConfiguration(actions: [deleteAction])
         }
-    }
-    
-    // EditingStyle
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            friendList.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
-        } else if editingStyle == .insert {
-            
-        }
-        
     }
 }
