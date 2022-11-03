@@ -39,16 +39,20 @@ class FriendTableViewCell: UITableViewCell {
         $0.textColor = .gray
         $0.font = .systemFont(ofSize: 11, weight: .regular)
     }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//    }
     
-    func dataBind(model: FriendModel){
+    func dataBind(model: FriendModel) {
         friendNameLabel.text = model.name
         friendImageView.image = UIImage(named: model.profileImage)
         friendStatusLabel.text = model.statusMessage
+    }
+    
+    func myDataBind(model: FriendModel, isMyProfile: Bool) {
+        dataBind(model: model)
+        
+        if isMyProfile == true {
+            friendNameLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+            friendStatusLabel.font = .systemFont(ofSize: 11, weight: .regular)
+        }
     }
 }
 
@@ -63,7 +67,7 @@ extension FriendTableViewCell {
         friendContainerView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(20)
-            $0.width.height.equalTo(41)
+            $0.width.height.equalTo(contentView.snp.height)
         }
                 
         friendImageView.snp.makeConstraints {

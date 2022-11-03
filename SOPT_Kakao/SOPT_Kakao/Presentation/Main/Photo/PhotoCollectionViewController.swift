@@ -11,6 +11,8 @@ import Then
 
 class PhotoCollectionViewController: UIViewController {
     
+    //var collectionCellSelected
+    
     //MARK: - UIComponents
     // 상단 바
     private let topBarView = UIView().then {
@@ -197,4 +199,5 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
         photoCell.dataBind(model: photoList[indexPath.item])
         return photoCell
     }
+    
 }

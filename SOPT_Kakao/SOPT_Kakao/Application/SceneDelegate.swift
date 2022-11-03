@@ -22,10 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let window = UIWindow(windowScene: windowScene)
                 window.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
                 
-                let rootVC = SignInViewController()
                 
-                let navigationController = UINavigationController(rootViewController: rootVC)
-                window.rootViewController = navigationController
+                // 나중에 다시 돌릴 것
+                // let rootVC = SignInViewController()
+                
+                // let navigationController = UINavigationController(rootViewController: rootVC)
+                window.rootViewController = KakaoTabbarController()  // navigationController
                 window.makeKeyAndVisible()
                 self.window = window
             }

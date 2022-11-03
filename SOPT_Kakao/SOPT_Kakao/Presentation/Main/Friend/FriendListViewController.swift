@@ -10,6 +10,8 @@ import SnapKit
 
 class FriendListViewController: UIViewController {
     
+    let myName : String = UserDefaults.standard.string(forKey: "userName") ?? "인영쓰"
+    
     //MARK: - UI Components
     //친구 View
     private let friendView : UIView = {
@@ -27,11 +29,11 @@ class FriendListViewController: UIViewController {
         return label
     }()
     
-    private let nameLabel : UILabel = {
-           let label = UILabel()
-           label.text = "이름이요"
-           return label
-       }()
+//    private let nameLabel : UILabel = {
+//           let label = UILabel()
+//           label.text = "이름이요"
+//           return label
+//       }()
     
     // 설정 버튼
     private lazy var settingButton : UIButton = {
@@ -41,13 +43,13 @@ class FriendListViewController: UIViewController {
         return settingBtn
     }()
     
-    // 프로필 이미지 버튼
-    private lazy var profileImageButton : UIButton = {
-        let profileImgBtn = UIButton()
-        profileImgBtn.setBackgroundImage(UIImage(named: "friendtab_profileImg"), for: .normal)
-        profileImgBtn.addTarget(self, action: #selector(touchupProfileImageButton), for: .touchUpInside)
-        return profileImgBtn
-    }()
+//    // 프로필 이미지 버튼
+//    private lazy var profileImageButton : UIButton = {
+//        let profileImgBtn = UIButton()
+//        profileImgBtn.setBackgroundImage(UIImage(named: "friendtab_profileImg"), for: .normal)
+//        profileImgBtn.addTarget(self, action: #selector(touchupProfileImageButton), for: .touchUpInside)
+//        return profileImgBtn
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,23 +60,9 @@ class FriendListViewController: UIViewController {
         register()
     }
     
-    //profileDetailVC로 present
-    func presentToProfileDetail() {
-        let detailVC = ProfileDetailViewController()
-        if let name = nameLabel.text {
-            detailVC.dataBind(name: name)
-            detailVC.modalPresentationStyle = .fullScreen
-            self.present(detailVC, animated: true, completion: nil)
-        }
-    }
-    
     // UserDefaults애 있는 정보를 받아옴
     func getUserInfo() {
-        if nameLabel.text != nil {
-            nameLabel.text = UserDefaults.standard.string(forKey: "userName")
-        } else {
-            print("이름이 없는 당신")
-        }
+        friendList[0].name = myName
     }
     
     //settingButton
@@ -82,14 +70,7 @@ class FriendListViewController: UIViewController {
     func touchupSettingButton() {
         print("setting")
     }
-    
-    //profileImageButton
-    @objc
-    func touchupProfileImageButton(){
-        presentToProfileDetail()
-    }
-    
-    
+
     // Friend TableView생성
     private lazy var friendTableView : UITableView = {
         let tableView = UITableView()
@@ -140,7 +121,7 @@ extension FriendListViewController {
             make.height.width.equalTo(19)
         }
         
-        view.addSubViews(friendView, profileImageButton)
+        view.addSubViews(friendView)
         
         friendView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide)
@@ -151,12 +132,6 @@ extension FriendListViewController {
         friendLabel.snp.makeConstraints { make in
             make.centerY.equalTo(self.friendView.snp.centerY)
             make.leading.equalTo(self.friendView.snp.leading).offset(14)
-        }
-        
-        profileImageButton.snp.makeConstraints { make in
-            make.top.equalTo(self.friendView.snp.bottom).offset(15)
-            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(14)
-            make.height.width.equalTo(41)
         }
     }
 }
@@ -181,7 +156,11 @@ extension FriendListViewController : UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let friendCell = tableView.dequeueReusableCell(withIdentifier: FriendTableViewCell.identifier, for: indexPath) as? FriendTableViewCell else { return FriendTableViewCell() }
-        friendCell.dataBind(model: friendList[indexPath.row])
+        if indexPath.row == 0 {
+            friendCell.myDataBind(model: friendList[indexPath.row], isMyProfile: true)
+        } else {
+            friendCell.dataBind(model: friendList[indexPath.row])
+        }
         return friendCell
     }
     
@@ -191,6 +170,13 @@ extension FriendListViewController : UITableViewDelegate, UITableViewDataSource 
         } else {
             return 50
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = ProfileDetailViewController()
+        detailVC.dataBind(name: friendList[indexPath.row].name)
+        detailVC.modalPresentationStyle = .fullScreen
+        self.present(detailVC, animated: true, completion: nil)
     }
     
     // UISwipeActionConfiguration를 이용한 delete
@@ -215,3 +201,4 @@ extension FriendListViewController : UITableViewDelegate, UITableViewDataSource 
         }
     }
 }
+

@@ -41,3 +41,4 @@ extension PhotoCollectionViewCell {
         photoImage.image = UIImage(named: model.photo)
     }
 }
+
