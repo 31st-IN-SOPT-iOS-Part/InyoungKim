@@ -84,8 +84,9 @@ class ProfileDetailViewController: UIViewController {
         setLayout()
     }
     
-    func dataBind(name: String) {
-        nameLabel.text = "\(name)"
+    func dataBind(profile: FriendModel) {
+        nameLabel.text = "\(profile.name)"
+        profileImageButton.setBackgroundImage(UIImage(named: "\(profile.profileImage)"), for: .normal)
     }
     
     @objc

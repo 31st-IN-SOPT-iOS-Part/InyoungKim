@@ -174,7 +174,7 @@ extension FriendListViewController : UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = ProfileDetailViewController()
-        detailVC.dataBind(name: friendList[indexPath.row].name)
+        detailVC.dataBind(profile: friendList[indexPath.row])
         detailVC.modalPresentationStyle = .fullScreen
         self.present(detailVC, animated: true, completion: nil)
     }
