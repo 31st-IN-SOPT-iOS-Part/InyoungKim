@@ -11,6 +11,16 @@ import Then
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     
+    override var isSelected: Bool {
+        didSet{
+            if isSelected {
+                selectedLayout()
+            }
+            else {
+                deselectedLayout()
+            }
+        }
+    }
     //MARK: - Identifier
     static let identifier = "PhotoCollectionViewCell"
     
@@ -37,8 +47,19 @@ extension PhotoCollectionViewCell {
         }
     }
     
-    func dataBind(model: PhotoModel) {
+    // 사진이 선택됐을 때의 레이아웃
+    func selectedLayout() {
+        contentView.layer.borderWidth = 4
+        self.contentView.layer.borderColor = UIColor.systemYellow.cgColor
+    }
+    
+    func deselectedLayout() {
+        self.contentView.layer.borderColor = UIColor.clear.cgColor
+    }
+    
+    func dataBind(model: PhotoModel, isSelected: Bool) {
         photoImage.image = UIImage(named: model.photo)
+        self.isSelected = isSelected
     }
 }
 

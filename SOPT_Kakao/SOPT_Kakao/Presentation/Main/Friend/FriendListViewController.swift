@@ -29,12 +29,6 @@ class FriendListViewController: UIViewController {
         return label
     }()
     
-//    private let nameLabel : UILabel = {
-//           let label = UILabel()
-//           label.text = "이름이요"
-//           return label
-//       }()
-    
     // 설정 버튼
     private lazy var settingButton : UIButton = {
         let settingBtn = UIButton()
@@ -42,14 +36,6 @@ class FriendListViewController: UIViewController {
         settingBtn.addTarget(self, action: #selector(touchupSettingButton), for: .touchUpInside)
         return settingBtn
     }()
-    
-//    // 프로필 이미지 버튼
-//    private lazy var profileImageButton : UIButton = {
-//        let profileImgBtn = UIButton()
-//        profileImgBtn.setBackgroundImage(UIImage(named: "friendtab_profileImg"), for: .normal)
-//        profileImgBtn.addTarget(self, action: #selector(touchupProfileImageButton), for: .touchUpInside)
-//        return profileImgBtn
-//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()

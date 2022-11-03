@@ -11,7 +11,6 @@ import Then
 
 class PhotoCollectionViewController: UIViewController {
     
-    //var collectionCellSelected
     
     //MARK: - UIComponents
     // 상단 바
@@ -52,6 +51,7 @@ class PhotoCollectionViewController: UIViewController {
         collectionView.showsVerticalScrollIndicator = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.allowsMultipleSelection = true
         return collectionView
     }()
     
@@ -196,8 +196,29 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let photoCell = photoCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
-        photoCell.dataBind(model: photoList[indexPath.item])
+        photoCell.dataBind(model: photoList[indexPath.item], isSelected: photoCell.isSelected)
         return photoCell
     }
     
+    //didSelect로 돌아가지 않았음..
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let photoCell = photoCollectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
+//        if indexPath.row == 0 {
+//            photoCell.deselectedLayout()
+//        } else {
+//            photoCell.dataBind(model: photoList[indexPath.row], isSelected: photoCell.isSelected )
+//        }
+//        photoCollectionView.reloadData()
+//    }
+
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        guard let photoCell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell else {
+            return true}
+        if photoCell.isSelected {
+            photoCollectionView.deselectItem(at: indexPath, animated: true)
+            return false
+        } else {
+            return true
+        }
+    }
 }
