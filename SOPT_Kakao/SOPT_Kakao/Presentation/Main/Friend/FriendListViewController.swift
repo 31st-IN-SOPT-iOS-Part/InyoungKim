@@ -58,7 +58,7 @@ class FriendListViewController: UIViewController {
     }
 
     // Friend TableView생성
-    private lazy var friendTableView : UITableView = {
+    lazy var friendTableView : UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -94,10 +94,10 @@ class FriendListViewController: UIViewController {
     
 }
 
+// MARK: - Layout
 extension FriendListViewController {
     
     func setLayout() {
-        
         // 친구, 설정버튼을 friendView에 추가
         friendView.addSubViews(friendLabel, settingButton)
         
@@ -120,10 +120,7 @@ extension FriendListViewController {
             make.leading.equalTo(self.friendView.snp.leading).offset(14)
         }
     }
-}
-
-extension FriendListViewController : UITableViewDelegate, UITableViewDataSource {
-
+    
     private func tableLayout() {
         view.backgroundColor = .white
         view.addSubview(friendTableView)
@@ -132,58 +129,6 @@ extension FriendListViewController : UITableViewDelegate, UITableViewDataSource 
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalToSuperview()
             $0.height.equalTo(50 * (friendList.count))
-        }
-    }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let friendCell = tableView.dequeueReusableCell(withIdentifier: FriendTableViewCell.identifier, for: indexPath) as? FriendTableViewCell else { return FriendTableViewCell() }
-        if indexPath.row == 0 {
-            friendCell.myDataBind(model: friendList[indexPath.row], isMyProfile: true)
-        } else {
-            friendCell.dataBind(model: friendList[indexPath.row])
-        }
-        return friendCell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 73
-        } else {
-            return 50
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = ProfileDetailViewController()
-        detailVC.dataBind(profile: friendList[indexPath.row])
-        detailVC.modalPresentationStyle = .fullScreen
-        self.present(detailVC, animated: true, completion: nil)
-    }
-    
-    // UISwipeActionConfiguration를 이용한 delete
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        if indexPath.row == 0 {
-            print("나를 삭제하지마..")
-            return nil
-        } else {
-            let deleteAction  = UIContextualAction(
-                style: .destructive,
-                title: "delete") {
-                    action, view, completionHandler in
-                    if indexPath.row == 0 {
-                        completionHandler(false)
-                    } else {
-                        self.friendList.remove(at: indexPath.row)
-                        self.friendTableView.reloadData()
-                        completionHandler(true)
-                    }
-                }
-            return UISwipeActionsConfiguration(actions: [deleteAction])
         }
     }
 }

@@ -22,24 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let window = UIWindow(windowScene: windowScene)
                 window.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
                 
+                let rootVC = SignInViewController()
                 
-                // 나중에 다시 돌릴 것
-                // let rootVC = SignInViewController()
-                
-                // let navigationController = UINavigationController(rootViewController: rootVC)
-                window.rootViewController = KakaoTabbarController()  // navigationController
+                let navigationController = UINavigationController(rootViewController: rootVC)
+                window.rootViewController = navigationController
                 window.makeKeyAndVisible()
                 self.window = window
             }
         }
-
-    //RootViewController를 변경하는 함수
-//    func changeRootVC(_ vc:UIViewController, animated: Bool) {
-//        guard let window = self.window else { return }
-//        window.rootViewController = vc
-//        
-//        UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
-//    }
     
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

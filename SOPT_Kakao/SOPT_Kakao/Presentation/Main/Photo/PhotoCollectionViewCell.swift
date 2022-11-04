@@ -53,10 +53,12 @@ extension PhotoCollectionViewCell {
         self.contentView.layer.borderColor = UIColor.systemYellow.cgColor
     }
     
+    // 사진 선택 해제
     func deselectedLayout() {
         self.contentView.layer.borderColor = UIColor.clear.cgColor
     }
     
+    // MARK: - DataBind
     func dataBind(model: PhotoModel, isSelected: Bool) {
         photoImage.image = UIImage(named: model.photo)
         self.isSelected = isSelected

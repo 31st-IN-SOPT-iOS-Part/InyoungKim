@@ -67,7 +67,7 @@ extension FriendTableViewCell {
         friendContainerView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(20)
-            $0.width.height.equalTo(contentView.snp.height)
+            $0.width.height.equalTo(contentView.snp.height).offset(-5)
         }
                 
         friendImageView.snp.makeConstraints {
@@ -75,7 +75,7 @@ extension FriendTableViewCell {
         }
                 
         friendNameLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(10)
             $0.leading.equalTo(friendContainerView.snp.trailing).offset(15)
         }
                 
