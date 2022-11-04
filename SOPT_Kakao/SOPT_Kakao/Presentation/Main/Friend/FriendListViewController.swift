@@ -32,7 +32,7 @@ class FriendListViewController: UIViewController {
     // 설정 버튼
     private lazy var settingButton : UIButton = {
         let settingBtn = UIButton()
-        settingBtn.setBackgroundImage(UIImage(named : "settings1"), for: .focused)
+        settingBtn.setBackgroundImage(UIImage(named : "settings1"), for: .normal)
         settingBtn.addTarget(self, action: #selector(touchupSettingButton), for: .touchUpInside)
         return settingBtn
     }()
@@ -62,6 +62,7 @@ class FriendListViewController: UIViewController {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
@@ -99,20 +100,19 @@ extension FriendListViewController {
     
     func setLayout() {
         // 친구, 설정버튼을 friendView에 추가
-        friendView.addSubViews(friendLabel, settingButton)
-        
-        settingButton.snp.makeConstraints { make in
-            make.centerX.equalTo(friendLabel)
-            make.trailing.equalTo(self.friendView.snp.trailing).offset(-15)
-            make.height.width.equalTo(19)
-        }
-        
         view.addSubViews(friendView)
+        friendView.addSubViews(settingButton, friendLabel)
         
         friendView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide)
             make.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             make.height.equalTo(52)
+        }
+        
+        settingButton.snp.makeConstraints { make in
+            make.centerY.equalTo(friendLabel)
+            make.trailing.equalToSuperview().offset(-15)
+            make.height.width.equalTo(19)
         }
         
         friendLabel.snp.makeConstraints { make in
