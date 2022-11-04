@@ -59,9 +59,8 @@ extension PhotoCollectionViewCell {
     }
     
     // MARK: - DataBind
-    func dataBind(model: PhotoModel, isSelected: Bool) {
+    func dataBind(model: PhotoModel) {
         photoImage.image = UIImage(named: model.photo)
-        self.isSelected = isSelected
     }
 }
 

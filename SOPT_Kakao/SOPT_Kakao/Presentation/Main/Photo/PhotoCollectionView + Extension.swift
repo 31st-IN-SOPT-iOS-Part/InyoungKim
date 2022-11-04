@@ -37,13 +37,17 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
-        photoCell.dataBind(model: photoList[indexPath.item], isSelected: photoCell.isSelected)
+        photoCell.dataBind(model: photoList[indexPath.item])
         return photoCell
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         guard let photoCell = collectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell else {
             return true}
+        if indexPath.row == 0 {
+            print("카메라는 영어로 캐머라")
+            return false
+        }
         if photoCell.isSelected {
             photoCollectionView.deselectItem(at: indexPath, animated: true)
             return false

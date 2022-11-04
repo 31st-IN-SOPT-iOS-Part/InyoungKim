@@ -24,11 +24,7 @@ extension FriendListViewController : UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 73
-        } else {
-            return 50
-        }
+        indexPath.row == 0 ? 73 : 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -52,6 +48,7 @@ extension FriendListViewController : UITableViewDelegate, UITableViewDataSource 
                         completionHandler(false)
                     } else {
                         self.friendList.remove(at: indexPath.row)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
                         self.friendTableView.reloadData()
                         completionHandler(true)
                     }

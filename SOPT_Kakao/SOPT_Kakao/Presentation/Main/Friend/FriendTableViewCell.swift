@@ -61,7 +61,6 @@ extension FriendTableViewCell {
         [friendContainerView, friendImageView, friendNameLabel, friendStatusLabel].forEach {
             contentView.addSubview($0)
         }
-                
         friendContainerView.addSubview(friendImageView)
         
         friendContainerView.snp.makeConstraints {

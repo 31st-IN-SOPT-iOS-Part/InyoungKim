@@ -46,7 +46,7 @@ class FriendListViewController: UIViewController {
         register()
     }
     
-    // UserDefaults애 있는 정보를 받아옴
+    // UserDefaults에 있는 정보를 받아옴
     func getUserInfo() {
         friendList[0].name = myName
     }
