@@ -11,6 +11,9 @@ import Then
 
 class PhotoCollectionViewController: UIViewController {
     
+    //MARK: -  Photo Selected Array
+    var photos = [UIImage]() //사진을 담을 배열
+    var selectedPhotoArray = [Int]() //선택된 사진들의 배열
     
     //MARK: - UIComponents
     // 상단 바
@@ -32,6 +35,11 @@ class PhotoCollectionViewController: UIViewController {
         $0.titleLabel?.font = .systemFont(ofSize: 14, weight: .regular)
         $0.addTarget(self, action: #selector(tapSendButton), for: .touchUpInside)
     }
+    
+    
+    // 선택된 사진 수
+    var totalSelectedNum : Int = 0
+    var totalSelectedLabel = UILabel()
     
     // backButton
     private lazy var backButton = UIButton().then {
@@ -113,7 +121,7 @@ extension PhotoCollectionViewController {
         view.backgroundColor = .white
         view.addSubViews(topBarView, photoCollectionView)
         
-        topBarView.addSubViews(backButton, recentLabel, sendButton)
+        topBarView.addSubViews(backButton, recentLabel, sendButton, totalSelectedLabel)
         
         topBarView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
@@ -133,6 +141,11 @@ extension PhotoCollectionViewController {
         sendButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-10)
+        }
+        
+        totalSelectedLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(sendButton.snp.leading)
         }
         
         //collectionView layout

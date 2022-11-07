@@ -38,6 +38,7 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
         photoCell.dataBind(model: photoList[indexPath.item])
+
         return photoCell
     }
 
@@ -49,10 +50,27 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
             return false
         }
         if photoCell.isSelected {
-            photoCollectionView.deselectItem(at: indexPath, animated: true)
+            collectionView.deselectItem(at: indexPath, animated: true)
             return false
         } else {
             return true
         }
     }
+    
+    //didSelect 함수
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
+        if cell.isSelected {
+            totalSelectedNum += 1
+            print(totalSelectedNum)
+        } else {
+            if totalSelectedNum > 0 {
+                totalSelectedNum -= 1
+            } else {
+                print("엥?")
+            }
+        }
+        self.totalSelectedLabel.text = "\(totalSelectedNum)"
+    }
+
 }
