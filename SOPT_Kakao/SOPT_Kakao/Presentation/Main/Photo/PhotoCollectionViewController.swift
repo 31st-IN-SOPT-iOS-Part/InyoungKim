@@ -12,8 +12,7 @@ import Then
 class PhotoCollectionViewController: UIViewController {
     
     //MARK: -  Photo Selected Array
-    var photos = [UIImage]() //사진을 담을 배열
-    var selectedPhotoArray = [Int]() //선택된 사진들의 배열
+    var selectedPhotoArray : [Int] = [] //선택된 사진들의 배열
     
     //MARK: - UIComponents
     // 상단 바
@@ -59,7 +58,10 @@ class PhotoCollectionViewController: UIViewController {
         collectionView.showsVerticalScrollIndicator = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.allowsMultipleSelection = true
+        
+        // 아래 코드를 적으면 선택 해제 시 두 번 눌러야 해제됩니다ㅠㅠ 왜 그런지..?
+        // collectionView.allowsMultipleSelection = true
+        
         return collectionView
     }()
     

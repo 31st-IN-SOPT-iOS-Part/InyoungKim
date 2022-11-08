@@ -11,9 +11,9 @@ import Then
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     
-    override var isSelected: Bool {
+    var isCellSelected : Bool = false {
         didSet{
-            if isSelected {
+            if isCellSelected {
                 selectedLayout()
             }
             else {
@@ -21,6 +21,17 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+//    이거 썼을 때 왜 안되는지...?
+//    override var isSelected: Bool {
+//        didSet{
+//            if isSelected {
+//                selectedLayout()
+//            }
+//            else {
+//                deselectedLayout()
+//            }
+//        }
+//    }
     
     //MARK: - Identifier
     static let identifier = "PhotoCollectionViewCell"
@@ -59,7 +70,6 @@ extension PhotoCollectionViewCell {
         contentView.layer.borderWidth = 4
         self.contentView.layer.borderColor = UIColor.systemYellow.cgColor
         self.indexNumLabel.isHidden = false
-        self.indexNumLabel.text = "V"
         self.indexNumLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         self.indexNumLabel.backgroundColor = .systemYellow
     }

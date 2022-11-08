@@ -37,40 +37,36 @@ extension PhotoCollectionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
+            
         photoCell.dataBind(model: photoList[indexPath.item])
-
         return photoCell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        guard let photoCell = collectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell else {
-            return true}
-        if indexPath.row == 0 {
-            print("카메라는 영어로 캐머라")
-            return false
-        }
-        if photoCell.isSelected {
-            collectionView.deselectItem(at: indexPath, animated: true)
-            return false
-        } else {
-            return true
-        }
     }
     
     //didSelect 함수
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
-        if cell.isSelected {
-            totalSelectedNum += 1
-            print(totalSelectedNum)
-        } else {
-            if totalSelectedNum > 0 {
-                totalSelectedNum -= 1
+        if indexPath.row == 0 { // 카메라를 눌렀을 때
+            print("카메라는 영어로 캐머라")
+        } else { // 사진을 눌렀을 때
+            print(cell.indexNumLabel.isHidden)
+            if !cell.isCellSelected {
+                cell.isCellSelected = true
+                selectedPhotoArray.append(indexPath.item)
+                print("추가됨요 -> \(selectedPhotoArray)")
             } else {
-                print("엥?")
+                cell.isCellSelected = false
+                selectedPhotoArray.remove(at: Int(cell.indexNumLabel.text!)!-1)
             }
+            
+            if !selectedPhotoArray.isEmpty {
+                for i in 0...selectedPhotoArray.count-1 {
+                    let index = IndexPath(item: selectedPhotoArray[i], section: 0)
+                    let cell = collectionView.cellForItem(at: index) as! PhotoCollectionViewCell
+                    cell.indexNumLabel.text = "\(i+1)"
+                }
+            }
+            
         }
-        self.totalSelectedLabel.text = "\(totalSelectedNum)"
+        self.totalSelectedLabel.text = "\(selectedPhotoArray.count)"
     }
-
 }
